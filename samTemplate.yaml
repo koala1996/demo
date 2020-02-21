@@ -19,13 +19,12 @@ Resources:
           Properties:
             Path: /test
             Method: get
-          apiGatewayLogicalName:
-            Type: AWS::Serverless::Api
-            Properties:
-              DefinitionUri: ./swagger.json
-              StageName: beta
-              Variables:
-                env: beta
+        ServerlessRestApiDeployment7536f03888:
+          Type: 'AWS::ApiGateway::Deployment'
+          Properties:
+            RestApiId: !Ref ServerlessRestApi
+            Description: 'RestApi deployment id: 7536f0388856c26f56be9c0954f2e9615fcbed09'
+            StageName: Stage
       Environment:
         Variables:
           REGION: eu-west-3
