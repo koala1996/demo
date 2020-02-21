@@ -19,10 +19,9 @@ Resources:
           Properties:
             Path: /test
             Method: get
-            RestApiId:
-            Ref: RestApi
-            Path: /
-            Method: GET
+            RestApiId: !Ref MyApi
+              Description: My deployment
+              StageName: DummyStage
       Environment:
         Variables:
           REGION: eu-west-3
