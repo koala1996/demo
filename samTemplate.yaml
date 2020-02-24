@@ -20,7 +20,7 @@ Resources:
             Path: /test
             Method: get
   RestApi:
-    Type: AWS::ApiGateway::RestApi
+    Type: 'AWS::ApiGateway::RestApi'
     Properties:
       Name: !Ref myFunctionLambda
   Stage:
