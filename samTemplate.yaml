@@ -19,25 +19,16 @@ Resources:
           Properties:
             Path: /test
             Method: get
-        "ServerlessRestApiDeployment350dd62652": {
-          "Type": "AWS::ApiGateway::Deployment",
-          "Properties": {
-            "RestApiId": {
-            },
-            "Description": "RestApi deployment id: 350dd6265253d7bbd55888d51335b6a3c2d4ad7d",
-            "StageName": "Stage2"
-          }
-        },
-        "ServerlessRestApiProdStage": {
-          "Type": "AWS::ApiGateway::Stage",
-          "Properties": {
-            "DeploymentId": {
-            },
-            "RestApiId": {
-            },
-            "StageName": "Prod"
-          }
-        },
+        RestApi:
+          Type: AWS::ApiGateway::RestApi
+          Properties:
+            Name: cdDeploy
+          Stage:
+            Type: AWS::ApiGateway::Stage
+            Properties:
+              DeploymentId: Deployment
+              RestApiId: test
+              StageName: prod3
 
       Environment:
         Variables:
