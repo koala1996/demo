@@ -20,7 +20,7 @@ Resources:
             Path: /test
             Method: get
   RestApi:
-    Type: 'AWS::ApiGateway::RestApi'
+    Type: 'AWS::Serverless::Api'
     Properties:
       Name: MyrestAPi
   Stage:
