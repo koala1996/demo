@@ -20,27 +20,67 @@ Resources:
             Path: /test
             Method: get
 
-  RestAPI:
+  RestApi:
     Type: "AWS::ApiGateway::RestApi"
     Properties:
-      Description: "API to get Car Image"
-      Name: "MyAPI"
+      Description: "some rest api"
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
+      Name: RestApi
 
-  ServerlessRestApi:
-    Type: "AWS::ApiGateway::RestApi"
-
-
-  ServerlessRestApiDeployment7536f03889:
-    Type: "AWS::ApiGateway::Deployment"
+  SomeResource:
+    Type: "AWS::ApiGateway::Resource"
     Properties:
-      RestApiId: !Ref ServerlessRestApi
-      StageName: Stage2
-  ServerlessRestApiProdStage:
-    Type: "AWS::ApiGateway::Stage"
+      ParentId:
+        Fn::GetAtt:
+          - "RestApi"
+          - "RootResourceId"
+      PathPart: part
+      RestApiId:
+        Ref: "RestApi"
+
+  SomeSubResource:
+    Type: "AWS::ApiGateway::Resource"
     Properties:
-      DeploymentId: !Ref ServerlessRestApiDeployment7536f03889
-      RestApiId: !Ref ServerlessRestApi
-      StageName: "Prod2"
+      ParentId:
+        Ref: "SomeResource"
+      PathPart: count
+      RestApiId:
+        Ref: "RestApi"
+
+  SomeResponseModel:
+    Type: "AWS::ApiGateway::Model"
+    Properties:
+      ContentType: "text/html"
+      Description: "Empty text/html response."
+      Name: someresponse
+      RestApiId:
+        !Ref RestApi
+      Schema: {}
+
+  PostMethod:
+    Type: "AWS::ApiGateway::Method"
+    Properties:
+      HttpMethod: POST
+      Integration:
+        IntegrationHttpMethod: POST
+        Type: AWS_PROXY
+      MethodResponses:
+        - ResponseModels:
+            Key: "application/x-www.form-urlencoded"
+            Value:
+              !Ref SomeResponse
+          ResponseParameters:
+            - method.response.header.Content-Length: true
+            - method.response.header.Content-Type: true
+            - method.response.header.Connection: true
+          StatusCode: 200
+      OperationName: SomeName
+      ResourceId:
+        !Ref "SomeSubResource"
+      RestApiId:
+        !Ref "RestApi"
 
 
 
