@@ -19,8 +19,11 @@ Resources:
           Properties:
             Path: /test
             Method: get
-            path: /prod
-            method: get
+        cdDeploy2:
+          Type: Api
+          Properties:
+            Path: /prod
+            Method: get
 
       Environment:
         Variables:
