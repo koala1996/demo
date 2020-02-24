@@ -70,7 +70,7 @@ Resources:
         - ResponseModels:
             Key: "application/x-www.form-urlencoded"
             Value:
-              !Ref SomeResponse
+              !Ref SomeResponseModel
           ResponseParameters:
             - method.response.header.Content-Length: true
             - method.response.header.Content-Type: true
