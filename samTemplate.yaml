@@ -30,11 +30,6 @@ Resources:
                 RestApiId: !Ref ServerlessRestApi
                 StageName: prod3
 
-      Environment:
-        Variables:
-          REGION: eu-west-3
-
-
 
 
 
