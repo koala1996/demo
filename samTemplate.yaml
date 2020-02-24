@@ -26,7 +26,7 @@ Resources:
   Stage:
     Type: 'AWS::ApiGateway::Stage'
     Properties:
-      DeploymentId: !Ref RestApi
+      DeploymentId: !Ref myFunctionLambda
       RestApiId: !Ref RestApi
       StageName: prod3
 
