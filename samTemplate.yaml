@@ -20,7 +20,18 @@ Resources:
             Path: /test
             Method: get
 
+  RestAPI:
+    Type: "AWS::ApiGateway::RestApi"
+    Properties:
+      Description: "API to get Car Image"
+      Name: "MyAPI"
 
+  ServerlessRestApi:
+    Type: "AWS::ApiGateway::RestApi"
+    Properties:
+      Body:
+        info:
+          version: "1.0"
 
   ServerlessRestApiDeployment7536f03888:
     Type: "AWS::ApiGateway::Deployment"
@@ -37,16 +48,5 @@ Resources:
   RestAPIDeployment:
     Type: "AWS::ApiGateway::Deployment"
 
-  RestAPI:
-    Type: "AWS::ApiGateway::RestApi"
-    Properties:
-      Description: "API to get Car Image"
-      Name: "MyAPI"
 
-  ServerlessRestApi:
-    Type: "AWS::ApiGateway::RestApi"
-    Properties:
-      Body:
-        info:
-          version: "1.0"
 
