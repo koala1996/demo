@@ -26,8 +26,8 @@ Resources:
             Stage:
               Type: 'AWS::Serverless::Stage'
               Properties:
-                DeploymentId: !Ref Deployment
-                RestApiId: !Ref RestApi
+                DeploymentId: !Ref ServerlessRestApiDeployment7536f03888
+                RestApiId: !Ref ServerlessRestApi
                 StageName: prod3
 
       Environment:
