@@ -30,7 +30,7 @@ Resources:
     Properties:
       DeploymentId: !Ref  ServerlessRestApiDeployment7536f03888
       RestApiId: !Ref ServerlessRestApi
-      StageName: Prod
+      StageName: Prod2
 
 
 
