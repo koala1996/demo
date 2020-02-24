@@ -21,8 +21,6 @@ Resources:
             Method: get
   RestApi:
     Type: AWS::ApiGateway::RestApi
-    Properties:
-      Name: !Ref myFunctionLambda
   ServerlessRestApiProdStage:
     Type: 'AWS::ApiGateway::Stage'
     Properties:
