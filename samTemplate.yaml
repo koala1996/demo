@@ -19,11 +19,9 @@ Resources:
           Properties:
             Path: /test
             Method: get
-          RestApi:
             Type: 'AWS::ApiGateway::RestApi'
             Properties:
               Name: cdDeploy
-            Stage:
               Type: 'AWS::ApiGateway::Stage'
               Properties:
                 DeploymentId: Deployment
