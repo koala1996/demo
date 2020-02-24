@@ -19,13 +19,15 @@ Resources:
           Properties:
             Path: /test
             Method: get
+          RestApi:
             Type: 'AWS::ApiGateway::RestApi'
             Properties:
               Name: cdDeploy
+            Stage:
               Type: 'AWS::ApiGateway::Stage'
               Properties:
                 DeploymentId: Deployment
-                RestApiId: 123456
+                RestApiId: !Ref RestApi
                 StageName: prod3
 
       Environment:
