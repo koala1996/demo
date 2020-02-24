@@ -19,16 +19,7 @@ Resources:
           Properties:
             Path: /test
             Method: get
-            "/pets": {
-              "get": {
-                "tags": [
-                  "pets"
-                ],
-                "location": {
-                  "type": "METHOD",
-                  "path": "/pets",
-                  "method": "GET"
-                },
+
 
       Environment:
         Variables:
