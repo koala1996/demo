@@ -25,6 +25,10 @@ Resources:
     Properties:
       Description: "API to get Car Image"
       Name: "MyAPI"
+
+  RestAPIDeployment:
+    Type: "AWS::ApiGateway::Deployment"
+
   RestAPIStage:
     Type: "AWS::ApiGateway::Stage"
     Properties:
@@ -32,8 +36,7 @@ Resources:
       RestApiId: !Ref "RestAPI"
       StageName: "dev"
 
-  RestAPIDeployment:
-    Type: "AWS::ApiGateway::Deployment"
+
 
 
 
