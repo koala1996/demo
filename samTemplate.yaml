@@ -27,7 +27,7 @@ Resources:
                 Type: 'AWS::ApiGateway::Stage'
                 Properties:
                   DeploymentId: Deployment
-                  RestApiId: 123456
+                  RestApiId: !Ref RestApi
                   StageName: prod3
 
       Environment:
