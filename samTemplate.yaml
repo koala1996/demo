@@ -19,18 +19,6 @@ Resources:
           Properties:
             Path: /test
             Method: get
-  RestApi:
-    Type: 'AWS::ApiGateway::RestApi'
-    Properties:
-      Name: MyrestAPi
-  Stage:
-    Type: 'AWS::ApiGateway::Stage'
-    Properties:
-      DeploymentId: !Ref myFunctionLambda
-      RestApiId: !Ref RestApi
-      StageName: prod3
-
-
 
 
 
