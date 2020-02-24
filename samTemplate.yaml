@@ -30,7 +30,7 @@ Resources:
     Type: "AWS::ApiGateway::RestApi"
 
 
-  ServerlessRestApiDeployment7536f03888:
+  ServerlessRestApiDeployment7536f03889:
     Type: "AWS::ApiGateway::Deployment"
     Properties:
       RestApiId: !Ref ServerlessRestApi
@@ -38,12 +38,9 @@ Resources:
   ServerlessRestApiProdStage:
     Type: "AWS::ApiGateway::Stage"
     Properties:
-      DeploymentId: !Ref ServerlessRestApiDeployment7536f03888
+      DeploymentId: !Ref ServerlessRestApiDeployment7536f03889
       RestApiId: !Ref ServerlessRestApi
       StageName: "Prod2"
-
-  RestAPIDeployment:
-    Type: "AWS::ApiGateway::Deployment"
 
 
 
