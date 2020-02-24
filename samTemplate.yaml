@@ -20,22 +20,17 @@ Resources:
             Path: /test
             Method: get
 
-  RestAPI:
-    Type: "AWS::ApiGateway::RestApi"
-    Properties:
-      Description: "API to get Car Image"
-      Name: "MyAPI"
-
-  RestAPIDeployment:
+  ServerlessRestApiDeployment7536f03888":
     Type: "AWS::ApiGateway::Deployment"
-
-  RestAPIStage:
+    Properties:
+      RestApiId: !Ref ServerlessRestApi
+      StageName: Stage2
+  ServerlessRestApiProdStage:
     Type: "AWS::ApiGateway::Stage"
     Properties:
-      DeploymentId: !Ref "RestAPIDeployment"
-      RestApiId: !Ref "RestAPI"
-      StageName: "dev"
-
+      DeploymentId: !Ref  ServerlessRestApiDeployment7536f03888
+      RestApiId: !Ref ServerlessRestApi
+      StageName: Prod
 
 
 
