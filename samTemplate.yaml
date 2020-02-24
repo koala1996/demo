@@ -19,16 +19,16 @@ Resources:
           Properties:
             Path: /test
             Method: get
-          RestApi:
-            Type: 'AWS::Serverless::RestApi'
-            Properties:
-              Name: cdDeploy
-            Stage:
-              Type: 'AWS::Serverless::Stage'
-              Properties:
-                DeploymentId: !Ref ServerlessRestApiDeployment7536f03888
-                RestApiId: !Ref ServerlessRestApi
-                StageName: prod3
+  RestApi:
+    Type: 'AWS::ApiGateway::RestApi'
+    Properties:
+      Name: cdDeploy
+    Stage:
+      Type: 'AWS::ApiGateway::Stage'
+      Properties:
+        DeploymentId: !Ref ServerlessRestApiDeployment7536f03888
+        RestApiId: !Ref ServerlessRestApi
+        StageName: prod3
 
 
 
