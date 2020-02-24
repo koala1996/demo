@@ -19,6 +19,7 @@ Resources:
           Properties:
             Path: /test
             Method: get
+            RestApiId: !Ref RestApi
         RestApi:
           Type: 'AWS::ApiGateway::RestApi'
           Properties:
@@ -27,7 +28,7 @@ Resources:
             Type: 'AWS::ApiGateway::Stage'
             Properties:
               DeploymentId: Deployment
-              RestApiId: test
+              RestApiId: !Ref cdDeploy
               StageName: prod3
 
       Environment:
