@@ -19,11 +19,8 @@ Resources:
           Properties:
             Path: /test
             Method: get
-        cdDeploy2:
-          Type: Api
-          Properties:
-            Path: /prod
-            Method: get
+              Path: /prod
+              Method: get
 
       Environment:
         Variables:
