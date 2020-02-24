@@ -21,66 +21,22 @@ Resources:
             Method: get
 
   RestApi:
-    Type: "AWS::ApiGateway::RestApi"
+    Type: AWS::ApiGateway::RestApi
     Properties:
-      Description: "some rest api"
-      EndpointConfiguration:
-        Types:
-          - REGIONAL
-      Name: RestApi
-
-  SomeResource:
-    Type: "AWS::ApiGateway::Resource"
-    Properties:
-      ParentId:
-        Fn::GetAtt:
-          - "RestApi"
-          - "RootResourceId"
-      PathPart: part
-      RestApiId:
-        Ref: "RestApi"
-
-  SomeSubResource:
-    Type: "AWS::ApiGateway::Resource"
-    Properties:
-      ParentId:
-        Ref: "SomeResource"
-      PathPart: count
-      RestApiId:
-        Ref: "RestApi"
-
-  SomeResponseModel:
-    Type: "AWS::ApiGateway::Model"
-    Properties:
-      ContentType: "text/html"
-      Description: "Empty text/html response."
-      Name: someresponse
-      RestApiId:
-        !Ref RestApi
-      Schema: {}
-
-  PostMethod:
-    Type: "AWS::ApiGateway::Method"
-    Properties:
-      HttpMethod: POST
-      Integration:
-        IntegrationHttpMethod: POST
-        Type: AWS_PROXY
-      MethodResponses:
-        - ResponseModels:
-            Key: "application/x-www.form-urlencoded"
-            Value:
-              !Ref SomeResponseModel
-          ResponseParameters:
-            - method.response.header.Content-Length: true
-            - method.response.header.Content-Type: true
-            - method.response.header.Connection: true
-          StatusCode: 200
-      OperationName: SomeName
-      ResourceId:
-        !Ref "SomeSubResource"
-      RestApiId:
-        !Ref "RestApi"
+      Body:
+        swagger: 2.0
+        info:
+          version: 0.0.1
+          title: test
+        basePath: /pete
+        schemes:
+          - https
+        definitions:
+          Empty:
+            type: object
+      Name: myApi
+      Parameters:
+        endpointConfigurationTypes: REGIONAL
 
 
 
