@@ -22,9 +22,9 @@ Resources:
   RestApi:
     Type: AWS::ApiGateway::RestApi
     Properties:
-      Name: cdDeploy
-  Stage:
-    Type: AWS::ApiGateway::Stage
+      Name: !Ref myFunctionLambda
+  ServerlessRestApiProdStage:
+    Type: 'AWS::ApiGateway::Stage'
     Properties:
       DeploymentId: !Ref RestApi
       RestApiId: !Ref RestApi
