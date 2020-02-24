@@ -20,13 +20,17 @@ Resources:
             Path: /test
             Method: get
   RestApi:
-    Type: 'AWS::Serverless::Api'
+    Type: 'AWS::ApiGateway::RestApi'
     Properties:
       Name: MyrestAPi
+  apiGatewayDeployment:
+    Type: "AWS::ApiGateway::Deployment"
+    Properties:
+      RestApiId: !Ref "RestApi"
   Stage:
     Type: 'AWS::ApiGateway::Stage'
     Properties:
-      DeploymentId: !Ref RestApi
+      DeploymentId: !Ref apiGatewayDeployment
       RestApiId: !Ref RestApi
       StageName: prod3
 
