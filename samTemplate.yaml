@@ -19,5 +19,6 @@ Resources:
           Properties:
             Path: /test
             Method: get
+            StageName: dev
 
 
