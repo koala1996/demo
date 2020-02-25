@@ -20,8 +20,8 @@ Resources:
             Path: /test
             Method: get
         -http:
-          path: user/create
-          method: get
+          Path: user/create
+          Method: get
 
   #MonaPI:
     #Type: 'AWS::ApiGateway::RestApi'
