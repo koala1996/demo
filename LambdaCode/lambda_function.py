@@ -1,7 +1,7 @@
 import json
 
 def lambda_handler(event, context):
-    msg = 'helloWorld its me! mario 2'
+    msg = 'helloWorld its me!'
     return{
         'body':json.dumps(msg)
     }
