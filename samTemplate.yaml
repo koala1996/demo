@@ -19,8 +19,11 @@ Resources:
           Properties:
             Path: /test
             Method: get
-
-
+  MyStage:
+    Type: 'AWS::ApiGateway::Stage'
+    Properties:
+      RestApiId: qdg3qnqso0
+      StageName: host
 
   #MonaPI:
     #Type: 'AWS::ApiGateway::RestApi'
