@@ -17,7 +17,7 @@ Resources:
   MonaPI:
     Type: 'AWS::ApiGateway::RestApi'
     Properties:
-      Description: A test API
+      Description: A test API !
       Name: MyRestAPI
 
   Stage:
