@@ -19,24 +19,19 @@ Resources:
           Properties:
             Path: /test
             Method: get
-
-        RestApi:
-          Type: AWS::ApiGateway::RestApi
+  myFunctionLambda2:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function2.lambda_handler
+      Runtime: python3.6
+      CodeUri: ./LambdaCode
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::362697521991:role/PolicyForDeploy'
+      Events:
+        cdDeploy:
+          Type: Api
           Properties:
-            Body:
-              swagger: 2.0
-              info:
-                version: 0.0.1
-                title: test
-              basePath: /pete
-              schemes:
-                - https
-              definitions:
-                Empty:
-                  type: object
-            Name: myApi
-            Parameters:
-              endpointConfigurationTypes: REGIONAL
-
-
+            Path: /test2
+            Method: get
 
