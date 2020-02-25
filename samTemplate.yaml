@@ -27,7 +27,7 @@ Resources:
   MyStage:
     Type: 'AWS::ApiGateway::Stage'
     Properties:
-      RestApiId: qdg3qnqso0
+      RestApiId: "qdg3qnqso0"
       StageName: host
 
   #MonaPI:
