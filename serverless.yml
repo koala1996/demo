@@ -21,7 +21,7 @@ org: koala1996
 
 provider:
   name: aws
-  runtime: python3.7
+  runtime: python3.6
 
 outputs:
   custom-output: any-value-here
