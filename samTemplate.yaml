@@ -13,19 +13,15 @@ Resources:
       MemorySize: 128
       Timeout: 30
       Role: 'arn:aws:iam::362697521991:role/PolicyForDeploy'
-      Events:
-        cdDeploy:
-          Type: Api
-          Properties:
-            Path: /test
-            Method: get
-        -http:
-          Path: user/create
-          Method: get
 
-  #MonaPI:
-    #Type: 'AWS::ApiGateway::RestApi'
-   # Properties:
-      #Description: A test API
-      #Name: MyRestAPI
+  MonaPI:
+    Type: 'AWS::ApiGateway::RestApi'
+    Properties:
+    Description: A test API
+    Name: MyRestAPI
 
+  Stage:
+    Type: 'AWS::ApiGateway::Stage'
+    Properties:
+      RestApiId: !Ref MonaPI
+      StageName: dev
