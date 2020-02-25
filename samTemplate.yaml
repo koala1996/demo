@@ -19,12 +19,13 @@ Resources:
           Properties:
             Path: /test
             Method: get
+
   myFunctionLambda2:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: lambda_function2.lambda_handler
       Runtime: python3.6
-      CodeUri: ./LambdaCode
+      CodeUri: ./LambdaCode2
       MemorySize: 128
       Timeout: 30
       Role: 'arn:aws:iam::362697521991:role/PolicyForDeploy'
@@ -32,6 +33,6 @@ Resources:
         cdDeploy2:
           Type: Api
           Properties:
-            Path: /test2
+            Path: /deploy
             Method: get
 
