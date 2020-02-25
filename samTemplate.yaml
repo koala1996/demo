@@ -29,7 +29,7 @@ Resources:
       Timeout: 30
       Role: 'arn:aws:iam::362697521991:role/PolicyForDeploy'
       Events:
-        cdDeploy:
+        cdDeploy2:
           Type: Api
           Properties:
             Path: /test2
