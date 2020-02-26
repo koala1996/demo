@@ -34,12 +34,13 @@ Resources:
     Type: 'AWS::ApiGateway::Deployment'
     Properties:
       RestApiId: !Ref MyRestApi
-      StageName: ' '
+      StageName: 'DummyStage'
 
   Stage:
     Type: 'AWS::ApiGateway::Stage'
+    DependsOn:
     Properties:
-      StageName: test
+      StageName: 'test'
       Description : "Test stage currently the only one that exists"
       RestApiId: !Ref MyRestApi
       DeploymentId: !Ref Deploy
