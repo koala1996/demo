@@ -22,9 +22,11 @@ Resources:
   Method:
     Type: 'AWS::ApiGateway::Method'
     Properties:
-      HttpMethod: GET
-      ResourceId: !Ref Stack
       RestApiId: !Ref MyRestApi
+      ResourceId: !Ref Stack
+      HttpMethod: get
+
+
 
 
 
