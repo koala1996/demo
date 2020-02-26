@@ -35,8 +35,8 @@ Resources:
     DependsOn:
       - Method
     Properties:
-      StageName: toto
       RestApiId: !Ref MyRestApi
+      StageName: Prod
   #Deploy:
     #Type: 'AWS::ApiGateway::Deployment'
     #DependsOn:
