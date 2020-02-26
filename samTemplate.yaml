@@ -32,11 +32,22 @@ Resources:
 
   Deploy:
     Type: 'AWS::ApiGateway::Deployment'
-    DependsOn:
-      - Method
     Properties:
       RestApiId: !Ref MyRestApi
+      StageName: peter
+
+  Stage:
+    Type: 'AWS::ApiGateway::Stage'
+    Properties:
       StageName: test
+      Description : "Test stage currently the only one that exists"
+      RestApiId: !Ref MyRestApi
+      DeploymentId: !Ref Deploy
+
+
+
+
+
 
 
   # Details about the myDateTimeFunction Lambda function
