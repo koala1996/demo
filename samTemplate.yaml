@@ -14,19 +14,26 @@ Resources:
       Timeout: 30
       Role: 'arn:aws:iam::362697521991:role/PolicyForDeploy'
 
-
-
   ServerlessRestApiProdStage:
     Type: 'AWS::ApiGateway::Stage'
     Properties:
       RestApiId: !Ref ServerlessRestApi
       StageName: dev2
-
+      MethodSettings:
+        ResourcePath: /
+        HttpMethod: GET
+        MetricsEnabled: 'true'
+        DataTraceEnabled: 'true'
   Stage:
     Type: 'AWS::ApiGateway::Stage'
     Properties:
       RestApiId: !Ref ServerlessRestApi
       StageName: dev
+      MethodSettings:
+        ResourcePath: /
+        HttpMethod: GET
+        MetricsEnabled: 'true'
+        DataTraceEnabled: 'true'
 
   ServerlessRestApi:
     Type: 'AWS::ApiGateway::RestApi'
