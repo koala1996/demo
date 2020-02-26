@@ -19,7 +19,18 @@ Resources:
         - RootResourceId
       PathPart: test
 
-
+  Method:
+    Type: 'AWS::ApiGateway::Method'
+    DependsOn:
+      - MyRestApi
+      - Stack
+    Properties:
+      HttpMethod: GET
+      ResourceId: !Ref Stack
+      RestApiId: !Ref MyRestApi
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
 
 
   # Details about the myDateTimeFunction Lambda function
