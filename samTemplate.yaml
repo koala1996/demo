@@ -30,11 +30,21 @@ Resources:
       RestApiId: !Ref MyRestApi
       AuthorizationType: NONE
 
-  Deploy:
-    Type: 'AWS::ApiGateway::Deployment'
+  Stage:
+    Type: 'AWS::ApiGateway::Stage'
     Properties:
+      StageName: toto
       RestApiId: !Ref MyRestApi
-      StageName: test
+  #Deploy:
+    #Type: 'AWS::ApiGateway::Deployment'
+    #DependsOn:
+      #- Method
+      #- Stack
+      #- MyRestApi
+    #Properties:
+      #RestApiId: !Ref MyRestApi
+      #StageName: test
+
 
 
 
