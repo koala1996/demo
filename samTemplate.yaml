@@ -24,7 +24,7 @@ Resources:
     Type: 'AWS::ApiGateway::Method'
     DependsOn:
       - Stack
-      - myFunctionLambda
+      - MyRestApi
     Properties:
       HttpMethod: GET
       ResourceId: !Ref Stack
@@ -34,12 +34,14 @@ Resources:
 
   Stage:
     Type: 'AWS::ApiGateway::Stage'
+    DependsOn: Method
     Properties:
       StageName: 'test3'
       RestApiId: !Ref MyRestApi
       DeploymentId: !Ref Deploy
 
   Deploy:
+    DependsOn: Stage
     Type: 'AWS::ApiGateway::Deployment'
     Properties:
       RestApiId: !Ref MyRestApi
