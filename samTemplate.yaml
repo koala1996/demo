@@ -7,16 +7,18 @@ Resources:
   MyRestApi:
     Type: 'AWS::ApiGateway::RestApi'
     Properties:
-      Body:
-        swagger: 2.0
-          basePath: /peter
-          schemes:
-            - https
-          definitions:
-            Empty:
-              type: object
       Description: A test API !
       Name: MyRestAPI
+
+  Stack:
+    Type: 'AWS::ApiGateway::Resource'
+    Properties:
+      RestApiId: !Ref MyRestApi
+      ParentId: !GetAtt
+        - MyRestApi
+        - RootResourceId
+      PathPart: stack
+
 
   Deployment:
     Type: 'AWS::ApiGateway::Deployment'
