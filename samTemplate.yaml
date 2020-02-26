@@ -20,32 +20,7 @@ Resources:
         - RootResourceId
       PathPart: Prod
 
-  Method:
-    Type: 'AWS::ApiGateway::Method'
-    DependsOn:
-      - Stack
-      - MyRestApi
-    Properties:
-      HttpMethod: GET
-      ResourceId: !Ref Stack
-      RestApiId: !Ref MyRestApi
-      AuthorizationType: NONE
 
-
-  Stage:
-    Type: 'AWS::ApiGateway::Stage'
-    DependsOn: Method
-    Properties:
-      StageName: 'test3'
-      RestApiId: !Ref MyRestApi
-      DeploymentId: !Ref Deploy
-
-  Deploy:
-    DependsOn: MyRestApi
-    Type: 'AWS::ApiGateway::Deployment'
-    Properties:
-      RestApiId: !Ref MyRestApi
-      StageName: 'DummyStage'
 
   # Details about the myDateTimeFunction Lambda function
   myFunctionLambda:
