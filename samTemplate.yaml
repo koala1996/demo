@@ -21,5 +21,21 @@ Resources:
       Timeout: 30
       Role: 'arn:aws:iam::362697521991:role/PolicyForDeploy'
 
+  ServerlessRestApiProdStage:
+    Type: 'AWS::ApiGateway::Stage'
+    Properties:
+      RestApiId: n6m17xeo2e
+      StageName: dev2
+      MethodSettings:
+        ResourcePath: /
+        HttpMethod: GET
 
+  Stage:
+    Type: 'AWS::ApiGateway::Stage'
+    Properties:
+      RestApiId: n6m17xeo2e
+      StageName: dev
+      MethodSettings:
+        ResourcePath: /
+        HttpMethod: GET
 
