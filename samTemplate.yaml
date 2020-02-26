@@ -28,9 +28,6 @@ Resources:
       ResourceId: !Ref Stack
       RestApiId: !Ref MyRestApi
       AuthorizationType: NONE
-      Integration:
-        Type: AWS_PROXY
-
 
   # Details about the myDateTimeFunction Lambda function
   myFunctionLambda:
