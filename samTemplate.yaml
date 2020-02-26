@@ -41,7 +41,7 @@ Resources:
       DeploymentId: !Ref Deploy
 
   Deploy:
-    DependsOn: Stage
+    DependsOn: MyRestApi
     Type: 'AWS::ApiGateway::Deployment'
     Properties:
       RestApiId: !Ref MyRestApi
