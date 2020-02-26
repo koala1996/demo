@@ -32,8 +32,6 @@ Resources:
 
   Deploy:
     Type: 'AWS::ApiGateway::Deployment'
-    DependsOn:
-      - Method
     Properties:
       RestApiId: !Ref MyRestApi
       StageName: test
