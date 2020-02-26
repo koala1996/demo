@@ -34,25 +34,9 @@ Resources:
     Type: 'AWS::ApiGateway::Deployment'
     DependsOn:
       - Method
-      - Stack
-      - MyRestApi
     Properties:
       RestApiId: !Ref MyRestApi
       StageName: test
-
-  Stage:
-    Type: 'AWS::ApiGateway::Stage'
-    DependsOn:
-      - Deploy
-    Properties:
-      StageName: test
-      RestApiId: !Ref MyRestApi
-      DeploymentId: !Ref Deploy
-
-
-
-
-
 
 
   # Details about the myDateTimeFunction Lambda function
