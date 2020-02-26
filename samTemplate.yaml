@@ -17,6 +17,7 @@ Resources:
       ParentId: !GetAtt
         - MyRestApi
         - RootResourceId
+      PathPart: /
 
 
 
