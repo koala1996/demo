@@ -31,7 +31,6 @@ Resources:
       RestApiId: !Ref MyRestApi
       AuthorizationType: NONE
       Integration:
-        Type: AWS_PROXY
         Uri: !Sub
           - lambdaArn: !GetAtt "myFunctionLambda.Arn"
 
