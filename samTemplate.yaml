@@ -14,11 +14,7 @@ Resources:
       Timeout: 30
       Role: 'arn:aws:iam::362697521991:role/PolicyForDeploy'
 
-  ServerlessRestApi:
-    Type: 'AWS::ApiGateway::RestApi'
-    Properties:
-      Description: A test API !
-      Name: MyRestAPI
+
 
   ServerlessRestApiProdStage:
     Type: 'AWS::ApiGateway::Stage'
@@ -31,3 +27,9 @@ Resources:
     Properties:
       RestApiId: !Ref ServerlessRestApi
       StageName: dev
+
+  ServerlessRestApi:
+    Type: 'AWS::ApiGateway::RestApi'
+    Properties:
+      Description: A test API !
+      Name: MyRestAPI
