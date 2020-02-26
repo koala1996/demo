@@ -9,9 +9,6 @@ Resources:
     Properties:
       Body:
         swagger: 2.0
-          info:
-            version: 0.0.1
-            title: test
           basePath: /peter
           schemes:
             - https
