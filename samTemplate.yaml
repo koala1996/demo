@@ -17,14 +17,7 @@ Resources:
       ParentId: !GetAtt
         - MyRestApi
         - RootResourceId
-      PathPart: stack
 
-  Method:
-    Type: 'AWS::ApiGateway::Method'
-    Properties:
-      RestApiId: !Ref MyRestApi
-      ResourceId: !GetAtt MyRestApi.RootResourceId
-      HttpMethod: get
 
 
 
