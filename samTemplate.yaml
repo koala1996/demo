@@ -32,7 +32,8 @@ Resources:
       AuthorizationType: NONE
       Integration:
         Type: AWS_PROXY
-        Uri: !Sub 'arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C'
+        Uri: !Sub
+          - lambdaArn: !GetAtt "myFunctionLambda.Arn"
 
   Stage:
     Type: 'AWS::ApiGateway::Stage'
