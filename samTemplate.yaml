@@ -13,13 +13,9 @@ Resources:
   Method:
     Type: 'AWS::ApiGateway::Method'
     Properties:
-      HttpMethod: GET
+      HttpMethod: POST
       ResourceId: !GetAtt MyRestApi.RootResourceId
       RestApiId: !Ref MyRestApi
-
-
-
-
 
 
   # Details about the myDateTimeFunction Lambda function
