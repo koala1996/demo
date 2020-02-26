@@ -20,6 +20,12 @@ Resources:
       Description: A test API !
       Name: MyRestAPI
 
+  ServerlessRestApiProdStage:
+    Type: 'AWS::ApiGateway::Stage'
+    Properties:
+      RestApiId: !Ref ServerlessRestApi
+      StageName: dev2
+
   Stage:
     Type: 'AWS::ApiGateway::Stage'
     Properties:
