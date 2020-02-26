@@ -32,6 +32,8 @@ Resources:
 
   Stage:
     Type: 'AWS::ApiGateway::Stage'
+    DependsOn:
+      - Method
     Properties:
       StageName: toto
       RestApiId: !Ref MyRestApi
