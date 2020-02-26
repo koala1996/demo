@@ -22,7 +22,9 @@ Resources:
 
   Method:
     Type: 'AWS::ApiGateway::Method'
-    DependsOn: Stack
+    DependsOn:
+      - Stack
+      - myFunctionLambda
     Properties:
       HttpMethod: GET
       ResourceId: !Ref Stack
@@ -47,7 +49,6 @@ Resources:
   # Details about the myDateTimeFunction Lambda function
   myFunctionLambda:
     Type: 'AWS::Serverless::Function'
-    DependsOn: Deploy
     Properties:
       Handler: lambda_function.lambda_handler
       Runtime: python3.6
