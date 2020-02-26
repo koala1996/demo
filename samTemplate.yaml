@@ -28,6 +28,8 @@ Resources:
       ResourceId: !Ref Stack
       RestApiId: !Ref MyRestApi
       AuthorizationType: NONE
+      Integration:
+        Uri: !Ref myFunctionLambda
 
   Stage:
     Type: 'AWS::ApiGateway::Stage'
