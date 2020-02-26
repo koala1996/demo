@@ -23,7 +23,8 @@ Resources:
     Type: 'AWS::ApiGateway::Method'
     Properties:
       RestApiId: !Ref MyRestApi
-      ResourceId: !Ref Stack
+      ResourceId: !GetAtt
+        -MyRestApi.RootResourceId
       HttpMethod: get
 
 
