@@ -38,7 +38,7 @@ Resources:
 
   Stage:
     Type: 'AWS::ApiGateway::Stage'
-    DependsOn:
+    DependsOn: Deploy
     Properties:
       StageName: 'test'
       Description : "Test stage currently the only one that exists"
