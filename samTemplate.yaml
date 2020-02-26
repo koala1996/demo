@@ -12,6 +12,7 @@ Resources:
 
   Stack:
     Type: 'AWS::ApiGateway::Resource'
+    DependsOn: MyRestApi
     Properties:
       RestApiId: !Ref MyRestApi
       ParentId: !GetAtt
@@ -21,9 +22,7 @@ Resources:
 
   Method:
     Type: 'AWS::ApiGateway::Method'
-    DependsOn:
-      - MyRestApi
-      - Stack
+    DependsOn: Stack
     Properties:
       HttpMethod: GET
       ResourceId: !Ref Stack
@@ -37,18 +36,6 @@ Resources:
       StageName: 'test'
       RestApiId: !Ref MyRestApi
       DeploymentId: !Ref Deploy
-
-
-
-  sagePlan:
-    Type: 'AWS::ApiGateway::UsagePlan'
-    DependsOn: Stage
-    Properties:
-      ApiStages:
-        - ApiId: !Ref MyRestApi
-          Stage: !Ref Stage
-      Description: Redirect
-      UsagePlanName: redirect-all-requests
 
   Deploy:
     Type: 'AWS::ApiGateway::Deployment'
