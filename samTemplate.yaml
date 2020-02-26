@@ -10,14 +10,12 @@ Resources:
       Description: A test API !
       Name: MyRestAPI
 
-  Stack:
-    Type: 'AWS::ApiGateway::Resource'
+  Method:
+    Type: 'AWS::ApiGateway::Method'
     Properties:
+      HttpMethod: get
+      ResourceId: !GetAtt MyRestApi.RootResourceId
       RestApiId: !Ref MyRestApi
-      ParentId: !GetAtt
-        - MyRestApi
-        - RootResourceId
-      PathPart: 
 
 
 
