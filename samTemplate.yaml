@@ -30,6 +30,16 @@ Resources:
       RestApiId: !Ref MyRestApi
       AuthorizationType: NONE
 
+  Deploy:
+    Type: 'AWS::ApiGateway::Deployment'
+    DependsOn:
+      - Method
+      - Stack
+      - MyRestApi
+    Properties:
+      RestApiId: !Ref MyRestApi
+      StageName: test
+
   Stage:
     Type: 'AWS::ApiGateway::Stage'
     DependsOn:
@@ -37,19 +47,12 @@ Resources:
     Properties:
       StageName: Prod
       RestApiId: !Ref MyRestApi
+      DeploymentId: !Ref Deploy
       MethodSettings:
         - ResourcePath: /test
           HttpMethod: GET
 
-  #Deploy:
-    #Type: 'AWS::ApiGateway::Deployment'
-    #DependsOn:
-      #- Method
-      #- Stack
-      #- MyRestApi
-    #Properties:
-      #RestApiId: !Ref MyRestApi
-      #StageName: test
+
 
 
 
