@@ -22,9 +22,6 @@ Resources:
 
   Method:
     Type: 'AWS::ApiGateway::Method'
-    DependsOn:
-      - Stack
-      - myFunctionLambda
     Properties:
       HttpMethod: GET
       ResourceId: !Ref Stack
