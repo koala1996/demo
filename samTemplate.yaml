@@ -32,8 +32,6 @@ Resources:
         Type: AWS_PROXY
         FunctionName: !Ref myFunctionLambda
 
-
-
   Stage:
     Type: 'AWS::ApiGateway::Stage'
     Properties:
