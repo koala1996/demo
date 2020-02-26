@@ -10,12 +10,7 @@ Resources:
       Description: A test API !
       Name: MyRestAPI
 
-  Method:
-    Type: 'AWS::ApiGateway::Method'
-    Properties:
-      HttpMethod: GET
-      ResourceId: !GetAtt MyRestApi.RootResourceId
-      RestApiId: !Ref MyRestApi
+
 
 
 
