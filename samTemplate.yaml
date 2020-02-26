@@ -19,6 +19,14 @@ Resources:
         - RootResourceId
       PathPart: stack
 
+  Method:
+    Type: 'AWS::ApiGateway::Method'
+    Properties:
+      HttpMethod: GET
+      ResourceId: !Ref Stack
+      RestApiId: !Ref MyRestApi
+
+
 
   # Details about the myDateTimeFunction Lambda function
   myFunctionLambda:
