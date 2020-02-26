@@ -32,7 +32,7 @@ Resources:
       AuthorizationType: NONE
       Integration:
         Type: AWS_PROXY
-        Uri: arn:aws:apigateway:eu-west-3:lambda:path/arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C
+        Uri: arn:aws:apigateway:eu-west-3:lambda:path/arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C/invocat
 
   Stage:
     Type: 'AWS::ApiGateway::Stage'
