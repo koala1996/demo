@@ -12,7 +12,6 @@ Resources:
 
   Stack:
     Type: 'AWS::ApiGateway::Resource'
-    DependsOn: MyRestApi
     Properties:
       RestApiId: !Ref MyRestApi
       ParentId: !GetAtt
@@ -22,9 +21,6 @@ Resources:
 
   Method:
     Type: 'AWS::ApiGateway::Method'
-    DependsOn:
-      - Stack
-      - myFunctionLambda
     Properties:
       HttpMethod: GET
       ResourceId: !Ref Stack
