@@ -30,14 +30,31 @@ Resources:
       RestApiId: !Ref MyRestApi
       AuthorizationType: NONE
 
+  Stage:
+    Type: 'AWS::ApiGateway::Stage'
+    DependsOn: MyRestApi
+    Properties:
+      DeploymentId: !Ref Deploy
+      RestApiId: !Ref MyRestApi
+      StageName: 'test'
+
+  sagePlan:
+    Type: 'AWS::ApiGateway::UsagePlan'
+    DependsOn: Stage
+    Properties:
+      ApiStages:
+        - ApiId: !Ref MyRestApi
+          Stage: !Ref Stage
+      Description: Redirect
+      UsagePlanName: redirect-all-requests
+
   Deploy:
     Type: 'AWS::ApiGateway::Deployment'
+    DependsOn: Method
     Properties:
       RestApiId: !Ref MyRestApi
-      StageName: Prod
-      StageDescription:
-        StageName: Prod
-        Description: Prod Stage
+      StageName: 'DummyStage'
+
 
 
 
