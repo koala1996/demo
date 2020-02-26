@@ -40,6 +40,7 @@ Resources:
     Type: 'AWS::ApiGateway::Deployment'
     Properties:
       RestApiId: !Ref MyRestApi
+      StageName: ' '
 
   # Details about the myDateTimeFunction Lambda function
   myFunctionLambda:
