@@ -25,7 +25,9 @@ Resources:
       - MyRestApi
     Properties:
       HttpMethod: GET
-      ResourceId: !Ref Stack
+      ResourceId: !GetAtt
+        - MyRestApi
+        - RootResourceId
       RestApiId: !Ref MyRestApi
       AuthorizationType: NONE
       Integration:
