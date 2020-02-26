@@ -13,8 +13,8 @@ Resources:
   Method:
     Type: 'AWS::ApiGateway::Method'
     Properties:
-      HttpMethod: POST
-      ResourceId: !GetAtt MyRestApi.RootResourceId
+      HttpMethod: GET
+      ResourceId: hx80s0gosa
       RestApiId: !Ref MyRestApi
 
 
