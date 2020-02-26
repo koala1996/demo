@@ -32,7 +32,7 @@ Resources:
   Stage:
     Type: 'AWS::ApiGateway::Stage'
     Properties:
-      StageName: 'test'
+      StageName: 'test2'
       RestApiId: !Ref MyRestApi
       DeploymentId: !Ref Deploy
 
@@ -40,7 +40,6 @@ Resources:
     Type: 'AWS::ApiGateway::Deployment'
     Properties:
       RestApiId: !Ref MyRestApi
-      StageName: 'DummyStage'
 
   # Details about the myDateTimeFunction Lambda function
   myFunctionLambda:
