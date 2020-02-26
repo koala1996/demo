@@ -35,8 +35,12 @@ Resources:
     DependsOn:
       - Method
     Properties:
-      RestApiId: !Ref MyRestApi
       StageName: Prod
+      RestApiId: !Ref MyRestApi
+      MethodSettings:
+        - ResourcePath: /test
+          HttpMethod: GET
+
   #Deploy:
     #Type: 'AWS::ApiGateway::Deployment'
     #DependsOn:
