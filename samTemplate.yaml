@@ -29,9 +29,23 @@ Resources:
       RestApiId: !Ref MyRestApi
       AuthorizationType: NONE
 
+  Stage:
+    Type: 'AWS::ApiGateway::Stage'
+    Properties:
+      StageName: 'test'
+      RestApiId: !Ref MyRestApi
+      DeploymentId: !Ref Deploy
+
+  Deploy:
+    Type: 'AWS::ApiGateway::Deployment'
+    Properties:
+      RestApiId: !Ref MyRestApi
+      StageName: 'DummyStage'
+
   # Details about the myDateTimeFunction Lambda function
   myFunctionLambda:
     Type: 'AWS::Serverless::Function'
+    DependsOn: Deploy
     Properties:
       Handler: lambda_function.lambda_handler
       Runtime: python3.6
