@@ -18,7 +18,7 @@ Resources:
       ParentId: !GetAtt
         - MyRestApi
         - RootResourceId
-      PathPart: test
+      PathPart: Prod
 
   Method:
     Type: 'AWS::ApiGateway::Method'
