@@ -30,7 +30,6 @@ Resources:
       AuthorizationType: NONE
       Integration:
         Type: AWS_PROXY
-      OperationName: !Ref myFunctionLambda
 
 
   # Details about the myDateTimeFunction Lambda function
