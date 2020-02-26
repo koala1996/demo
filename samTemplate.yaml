@@ -43,14 +43,11 @@ Resources:
   Stage:
     Type: 'AWS::ApiGateway::Stage'
     DependsOn:
-      - Method
+      - Deploy
     Properties:
-      StageName: Prod
+      StageName: test
       RestApiId: !Ref MyRestApi
       DeploymentId: !Ref Deploy
-      MethodSettings:
-        - ResourcePath: /test
-          HttpMethod: GET
 
 
 
