@@ -10,12 +10,26 @@ Resources:
       Description: A test API !
       Name: MyRestAPI
 
+  Stack:
+    Type: 'AWS::ApiGateway::Resource'
+    Properties:
+      RestApiId: !Ref MyRestApi
+      ParentId: !GetAtt
+        - MyRestApi
+        - RootResourceId
+      PathPart: stack
+
   Method:
     Type: 'AWS::ApiGateway::Method'
+    DependsOn:
+      - MyRestApi
     Properties:
       HttpMethod: GET
-      ResourceId: !GetAtt [MyRestApi, RootResourceId]
+      ResourceId: !Ref Stack
       RestApiId: !Ref MyRestApi
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
 
 
   # Details about the myDateTimeFunction Lambda function
