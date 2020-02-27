@@ -8,7 +8,7 @@ Resources:
     Type: 'AWS::Lambda::Permission'
     Properties:
       Principal: apigateway.amazonaws.com
-      Action: 'lambda:InvokeFunction'
+      Action: lambda:InvokeFunction
       FunctionName: arn:aws:lambda:eu-west-3:362697521991:function:branchlambda-myFunctionLambda-1KU5NR2EHM53B:Prod3
       SourceArn: arn:aws:execute-api:eu-west-3:362697521991:zokn3uadh8/*/GET/Prod
 
