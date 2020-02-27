@@ -7,7 +7,7 @@ Resources:
     Type: AWS::ApiGateway::RestApi
     Properties:
       Description: A test API !
-      Name: MyRestAPI
+      Name: MyRestAPIDemo
   Stack:
     Type: AWS::ApiGateway::Resource
     DependsOn: MyRestApi
@@ -40,12 +40,14 @@ Resources:
               application/json: Empty
   Deploy:
     Type: AWS::ApiGateway::Deployment
+    DependsOn: Method
     Properties:
       RestApiId:
         Ref: MyRestApi
       StageName: Prod
   Stage:
     Type: AWS::ApiGateway::Stage
+    DependsOn: Deploy
     Properties:
       StageName: test
       RestApiId:
