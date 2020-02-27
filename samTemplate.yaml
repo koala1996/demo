@@ -15,13 +15,13 @@ Resources:
       Timeout: 30
       Role: 'arn:aws:iam::362697521991:role/PolicyForDeploy'
 
-  Alias:
-    Type: 'AWS::Lambda::Alias'
-    DependsOn: myFunctionLambda
-    Properties:
-      FunctionName: !Ref myFunctionLambda
-      FunctionVersion: $LATEST
-      Name: Prod3
+  #Alias:
+    #Type: 'AWS::Lambda::Alias'
+    #DependsOn: myFunctionLambda
+    #Properties:
+      #FunctionName: !Ref myFunctionLambda
+      #FunctionVersion: $LATEST
+      #Name: Prod3
 
 
 
