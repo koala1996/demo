@@ -59,8 +59,8 @@ Resources:
   Event:
     Type: 'AWS::Lambda::EventSourceMapping'
     Properties:
-      FunctionName: !Ref myFunctionLambda
-      EventSourceArn: !Sub MyRestApi.arn
+      FunctionName: arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C
+      EventSourceArn: !Ref MyRestApi
 
 
 
