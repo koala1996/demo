@@ -51,7 +51,7 @@ Resources:
       RestApiId: !Ref MyRestApi
       DeploymentId: !Ref Deploy
       Variables:
-        stageVariables: Prod3
+        lambdaAlias: Prod3
 
   # Details about the myDateTimeFunction Lambda function
   myFunctionLambda:
