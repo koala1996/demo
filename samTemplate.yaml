@@ -61,7 +61,7 @@ Resources:
     Properties:
       FunctionName: !Ref myFunctionLambda
       FunctionVersion: $LATEST
-      Name: Prod2
+      Name: Prod3
 
 
 
