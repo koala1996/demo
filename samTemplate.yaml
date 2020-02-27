@@ -8,7 +8,7 @@ Resources:
     Type: 'AWS::ApiGateway::RestApi'
     Properties:
       Description: A test API !
-      Name: MyRestAPI22
+      Name: MyRestAPI
 
   Stack:
     Type: 'AWS::ApiGateway::Resource'
@@ -47,7 +47,7 @@ Resources:
   Stage:
     Type: 'AWS::ApiGateway::Stage'
     Properties:
-      StageName: 'test'
+      StageName: 'test2'
       RestApiId: !Ref MyRestApi
       DeploymentId: !Ref Deploy
       Variables:
