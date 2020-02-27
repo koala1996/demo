@@ -56,18 +56,11 @@ Resources:
       Timeout: 30
       Role: 'arn:aws:iam::362697521991:role/PolicyForDeploy'
 
-  version:
-    DeletionPolicy: Retain
-    Type: AWS::Lambda::Version
-    Properties:
-      FunctionName:
-        Ref: myFunctionLambda
-
   Alias:
     Type: 'AWS::Lambda::Alias'
     Properties:
       FunctionName: !Ref myFunctionLambda
-      FunctionVersion: !GetAtt version.Version
+      FunctionVersion: $LATEST
       Name: Prod2
 
 
