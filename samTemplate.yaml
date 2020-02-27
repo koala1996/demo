@@ -38,6 +38,13 @@ Resources:
           - StatusCode: 200
             ResponseTemplates: {"application/json": Empty}
 
+
+  Deploy:
+    Type: 'AWS::ApiGateway::Deployment'
+    Properties:
+      RestApiId: !Ref MyRestApi
+      StageName: 'Prod'
+
   # Details about the myDateTimeFunction Lambda function
   myFunctionLambda:
     Type: 'AWS::Serverless::Function'
