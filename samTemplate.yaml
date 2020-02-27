@@ -4,53 +4,13 @@ Description: DemoLambdaCD
 
 Resources:
 
-  MyRestApi:
-    Type: 'AWS::ApiGateway::RestApi'
+  Permission:
+    Type: 'AWS::Lambda::Permission'
     Properties:
-      Description: A test API !
-      Name: MyRestAPI
-
-  Stack:
-    Type: 'AWS::ApiGateway::Resource'
-    DependsOn: MyRestApi
-    Properties:
-      RestApiId: !Ref MyRestApi
-      ParentId: !GetAtt
-        - MyRestApi
-        - RootResourceId
-      PathPart: Prod
-
-  Method:
-    Type: 'AWS::ApiGateway::Method'
-    DependsOn:
-      - Stack
-    Properties:
-      HttpMethod: GET
-      ResourceId: !Ref Stack
-      RestApiId: !Ref MyRestApi
-      AuthorizationType: NONE
-      Integration:
-        Type: AWS_PROXY
-        IntegrationHttpMethod: GET
-        Uri: arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C:${stageVariables.lambdaAlias}
-        IntegrationResponses:
-          - StatusCode: 200
-            ResponseTemplates: {"application/json": Empty}
-  Deploy:
-    Type: 'AWS::ApiGateway::Deployment'
-    Properties:
-      RestApiId: !Ref MyRestApi
-      StageName: 'Prod2'
-
-
-  Stage:
-    Type: 'AWS::ApiGateway::Stage'
-    Properties:
-      StageName: 'test2'
-      RestApiId: !Ref MyRestApi
-      DeploymentId: !Ref Deploy
-      Variables:
-        lambdaAlias: Prod3
+      Principal: apigateway.amazonaws.com
+      Action: 'lambda:InvokeFunction'
+      FunctionName: arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C:Prod3
+      SourceArn: arn:aws:execute-api:eu-west-3:362697521991:a6adkv5qe7/*/GET/Prod
 
 
 
