@@ -47,7 +47,6 @@ Resources:
       StageName: Prod
   Stage:
     Type: AWS::ApiGateway::Stage
-    DependsOn: Deploy
     Properties:
       StageName: test
       RestApiId:
