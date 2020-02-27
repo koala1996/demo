@@ -60,7 +60,7 @@ Resources:
     Type: 'AWS::Lambda::EventSourceMapping'
     Properties:
       FunctionName: arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C
-      EventSourceArn: !Ref MyRestApi
+      EventSourceArn: arn:aws:execute-api:eu-west-3:362697521991:a6adkv5qe7/*/GET/Prod
 
 
 
