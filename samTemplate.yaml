@@ -56,12 +56,12 @@ Resources:
       Timeout: 30
       Role: 'arn:aws:iam::362697521991:role/PolicyForDeploy'
 
-  Event:
-    Type: 'AWS::Lambda::EventSourceMapping'
+  Alias:
+    Type: 'AWS::Lambda::Alias'
     Properties:
-      FunctionName: arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C
-      EventSourceArn: arn:aws:execute-api:eu-west-3:362697521991:a6adkv5qe7/*/GET/Prod
-
+      FunctionName: !Ref myFunctionLambda
+      FunctionVersion: (\$LATEST| 1)
+      Name: Prod
 
 
 
