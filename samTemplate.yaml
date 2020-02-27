@@ -17,6 +17,7 @@ Resources:
 
   Alias:
     Type: 'AWS::Lambda::Alias'
+    DependsOn: myFunctionLambda
     Properties:
       FunctionName: !Ref myFunctionLambda
       FunctionVersion: $LATEST
