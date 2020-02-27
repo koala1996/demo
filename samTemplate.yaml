@@ -36,7 +36,7 @@ Resources:
         Uri: arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C/invocations
         IntegrationResponses:
           - StatusCode: 200
-            ResponseTemplates: {"application/json": "$input.json('$.body')"}
+            ResponseTemplates: {"application/json": Empty}
 
   # Details about the myDateTimeFunction Lambda function
   myFunctionLambda:
