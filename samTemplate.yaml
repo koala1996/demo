@@ -33,7 +33,7 @@ Resources:
       AuthorizationType: NONE
       Integration:
         Type: AWS_PROXY
-        IntegrationHttpMethod: GET
+        IntegrationHttpMethod: POST
         Uri: arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-3:362697521991:function:branchlambda-myFunctionLambda-1KU5NR2EHM53B:${stageVariables.lambdaAlias}/invocations
         IntegrationResponses:
           - StatusCode: 200
