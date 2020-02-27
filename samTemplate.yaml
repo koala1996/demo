@@ -60,7 +60,7 @@ Resources:
     Type: 'AWS::Lambda::EventSourceMapping'
     Properties:
       FunctionName: !Ref myFunctionLambda
-      EventSourceArn: !Ref MyRestApi
+      EventSourceArn: !Sub MyRestApi.arn
 
 
 
