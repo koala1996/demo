@@ -37,13 +37,21 @@ Resources:
         IntegrationResponses:
           - StatusCode: 200
             ResponseTemplates: {"application/json": Empty}
-
-
   Deploy:
     Type: 'AWS::ApiGateway::Deployment'
     Properties:
       RestApiId: !Ref MyRestApi
       StageName: 'Prod'
+
+
+  Stage:
+    Type: 'AWS::ApiGateway::Stage'
+    Properties:
+      StageName: 'test'
+      RestApiId: !Ref MyRestApi
+      DeploymentId: !Ref Deploy
+      Variables:
+        stageVariables: Prod3
 
   # Details about the myDateTimeFunction Lambda function
   myFunctionLambda:
