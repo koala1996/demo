@@ -26,7 +26,7 @@ Resources:
       - Stack
       - myFunctionLambda
     Properties:
-      HttpMethod: GET
+      HttpMethod: POST
       ResourceId: !Ref Stack
       RestApiId: !Ref MyRestApi
       AuthorizationType: NONE
