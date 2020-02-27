@@ -9,8 +9,8 @@ Resources:
     Properties:
       Principal: apigateway.amazonaws.com
       Action: 'lambda:InvokeFunction'
-      FunctionName: arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C:Prod3
-      SourceArn: arn:aws:execute-api:eu-west-3:362697521991:a6adkv5qe7/*/GET/Prod
+      FunctionName: arn:aws:lambda:eu-west-3:362697521991:function:branchlambda-myFunctionLambda-1KU5NR2EHM53B:Prod3
+      SourceArn: arn:aws:execute-api:eu-west-3:362697521991:zokn3uadh8/*/GET/Prod
 
 
 
