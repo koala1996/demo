@@ -41,7 +41,7 @@ Resources:
     Type: 'AWS::ApiGateway::Deployment'
     Properties:
       RestApiId: !Ref MyRestApi
-      StageName: 'Prod'
+      StageName: 'Prod2'
 
 
   Stage:
