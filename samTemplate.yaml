@@ -33,7 +33,7 @@ Resources:
       Integration:
         Type: AWS_PROXY
         IntegrationHttpMethod: GET
-        Uri: arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C/invocations
+        Uri: arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-3:362697521991:function:LambdaCDdemo-myFunctionLambda-1K3C4PBH98V1C:${stageVariables.lambdaAlias}/invocations
         IntegrationResponses:
           - StatusCode: 200
             ResponseTemplates: {"application/json": Empty}
