@@ -34,7 +34,7 @@ Resources:
       Integration:
         Type: AWS_PROXY
         IntegrationHttpMethod: POST
-        Uri: arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-3:362697521991:function:branchlambda-myFunctionLambda-1KU5NR2EHM53B:${stageVariables.lambdaAlias}/invocations
+        Uri: arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-3:362697521991:function:branchlambda-myFunctionLambda-EXMKIVQUPPJA:${stageVariables.lambdaAlias}/invocations
         IntegrationResponses:
           - StatusCode: 200
             ResponseTemplates:
@@ -55,7 +55,7 @@ Resources:
       DeploymentId:
         Ref: Deploy
       Variables:
-        lambdaAlias: Prod3
+        lambdaAlias: Prod
 
 
 
