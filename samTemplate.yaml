@@ -4,20 +4,20 @@ Description: DemoLambda
 
 Resources:
 
-  MyRestApi:
+  MyRestApiCP:
     Type: AWS::ApiGateway::RestApi
     Properties:
       Description: A test API !
       Name: MyRestAPIDemo
   Stack:
     Type: AWS::ApiGateway::Resource
-    DependsOn: MyRestApi
+    DependsOn: MyRestApiCP
     Properties:
       RestApiId:
-        Ref: MyRestApi
+        Ref: MyRestApiCP
       ParentId:
         Fn::GetAtt:
-          - MyRestApi
+          - MyRestApiCP
           - RootResourceId
       PathPart: Prod
   Method:
@@ -29,12 +29,12 @@ Resources:
       ResourceId:
         Ref: Stack
       RestApiId:
-        Ref: MyRestApi
+        Ref: MyRestApiCP
       AuthorizationType: NONE
       Integration:
         Type: AWS_PROXY
         IntegrationHttpMethod: POST
-        Uri: arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-3:362697521991:function:branchlambda-myFunctionLambda-EXMKIVQUPPJA:${stageVariables.lambdaAlias}/invocations
+        Uri: arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/${DeployLambdaCP.Arn}:${stageVariables.lambdaAlias}/invocations
         IntegrationResponses:
           - StatusCode: 200
             ResponseTemplates:
@@ -44,14 +44,14 @@ Resources:
     DependsOn: Method
     Properties:
       RestApiId:
-        Ref: MyRestApi
+        Ref: MyRestApiCP
       StageName: Prod
   Stage:
     Type: AWS::ApiGateway::Stage
     Properties:
       StageName: test
       RestApiId:
-        Ref: MyRestApi
+        Ref: MyRestApiCP
       DeploymentId:
         Ref: Deploy
       Variables:
@@ -61,7 +61,7 @@ Resources:
     Properties:
       StageName: PETER
       RestApiId:
-        Ref: MyRestApi
+        Ref: MyRestApiCP
       DeploymentId:
         Ref: Deploy
 
