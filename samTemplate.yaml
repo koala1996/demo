@@ -4,69 +4,16 @@ Description: DemoLambda
 
 Resources:
 
-  MyRestApiCP:
-    Type: AWS::ApiGateway::RestApi
+ myFunctionLambda:
+    Type: 'AWS::Serverless::Function'
     Properties:
-      Description: A test API !
-      Name: MyRestAPIDemo
-  Stack:
-    Type: AWS::ApiGateway::Resource
-    DependsOn: MyRestApiCP
-    Properties:
-      RestApiId:
-        Ref: MyRestApiCP
-      ParentId:
-        Fn::GetAtt:
-          - MyRestApiCP
-          - RootResourceId
-      PathPart: Prod
-  Method:
-    Type: AWS::ApiGateway::Method
-    DependsOn:
-      - Stack
-    Properties:
-      HttpMethod: GET
-      ResourceId:
-        Ref: Stack
-      RestApiId:
-        Ref: MyRestApiCP
-      AuthorizationType: NONE
-      Integration:
-        Type: AWS_PROXY
-        IntegrationHttpMethod: POST
-        Uri: !Sub
-          - arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/${DeployLambdaCPARN}:${stageVariables.lambdaAlias}/invocations
-          - DeploylambdaCPARN: !Sub "DeployLambdaCP.Arn"
-        IntegrationResponses:
-          - StatusCode: 200
-            ResponseTemplates:
-              application/json: Empty
-  Deploy:
-    Type: AWS::ApiGateway::Deployment
-    DependsOn: Method
-    Properties:
-      RestApiId:
-        Ref: MyRestApiCP
-      StageName: Prod
-  Stage:
-    Type: AWS::ApiGateway::Stage
-    Properties:
-      StageName: test
-      RestApiId:
-        Ref: MyRestApiCP
-      DeploymentId:
-        Ref: Deploy
-      Variables:
-        lambdaAlias: Prod
-  Stage2:
-    Type: AWS::ApiGateway::Stage
-    Properties:
-      StageName: PETER
-      RestApiId:
-        Ref: MyRestApiCP
-      DeploymentId:
-        Ref: Deploy
-
+      FunctionName: DeployLambdaCP
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.6
+      CodeUri: ./LambdaCode
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::362697521991:role/PolicyForDeploy'
 
 
 
