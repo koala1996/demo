@@ -34,7 +34,9 @@ Resources:
       Integration:
         Type: AWS_PROXY
         IntegrationHttpMethod: POST
-        Uri: !Sub arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/${DeployLambdaCP.Arn}:${stageVariables.lambdaAlias}/invocations
+        Uri: !Sub
+          - arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/${DeployLambdaCPARN}:${stageVariables.lambdaAlias}/invocations
+          - DeploylambdaCPARN: !Sub "DeployLambdaCP.Arn"
         IntegrationResponses:
           - StatusCode: 200
             ResponseTemplates:
