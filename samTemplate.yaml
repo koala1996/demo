@@ -64,6 +64,8 @@ Resources:
         Ref: MyRestApiCP
       DeploymentId:
         Ref: Deploy
+      Variables:
+        lambdaAlias: Prod
 
 
 
