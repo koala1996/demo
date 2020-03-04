@@ -10,7 +10,7 @@ Resources:
       Principal: apigateway.amazonaws.com
       Action: lambda:InvokeFunction
       FunctionName: arn:aws:lambda:eu-central-1:362697521991:function:DeployLambdaCP:Prod
-      SourceArn:  arn:aws:execute-api:eu-central-1:362697521991:vzl05eyu2m/*/GET/Prod
+      SourceArn:  arn:aws:execute-api:eu-central-1:362697521991:3pgpflb87f/*/GET/Prod
 
 
 
