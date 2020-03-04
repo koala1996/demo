@@ -73,15 +73,6 @@ Resources:
       IdentitySource: "method.request.header.Authorization"
       RestApiId: !Ref MyRestApiCP
       Type: COGNITO_USER_POOLS
-  MyApiGatewayResponse:
-    Type: "AWS::ApiGateway::GatewayResponse"
-    Properties:
-      ResponseParameters:
-        "gatewayresponse.header.Access-Control-Allow-Origin": "'*'"
-        "gatewayresponse.header.Access-Control-Allow-Headers": "'*'"
-      ResponseType: UNAUTHORIZED
-      RestApiId: !Ref MyRestApiCP
-      StatusCode: "401"
 
 
 
