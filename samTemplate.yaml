@@ -72,7 +72,7 @@ Resources:
       Name: "my-api-authorizer"
       IdentitySource: "method.request.header.Authorization"
       RestApiId: !Ref MyRestApiCP
-      Type: test
+      Type: "TOKEN"
 
 
 
