@@ -71,8 +71,19 @@ Resources:
     Properties:
       Name: "my-api-authorizer"
       IdentitySource: "method.request.header.Authorization"
+      ProviderARNs: arn:aws:cognito-idp:eu-central-1:362697521991:userpool/eu-central-1_KtMuWq86w
       RestApiId: !Ref MyRestApiCP
       Type: COGNITO_USER_POOLS
+
+  MyApiGatewayResponse:
+    Type: "AWS::ApiGateway::GatewayResponse"
+    Properties:
+      ResponseParameters:
+        "gatewayresponse.header.Access-Control-Allow-Origin": "'*'"
+        "gatewayresponse.header.Access-Control-Allow-Headers": "'*'"
+      ResponseType: UNAUTHORIZED
+      RestApiId: !Ref MyRestApiCP
+      StatusCode: "401"
 
 
 
