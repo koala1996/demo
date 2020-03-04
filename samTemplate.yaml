@@ -49,7 +49,7 @@ Resources:
   Stage:
     Type: AWS::ApiGateway::Stage
     Properties:
-      StageName: test
+      StageName: test2
       RestApiId:
         Ref: MyRestApiCP
       DeploymentId:
