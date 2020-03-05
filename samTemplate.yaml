@@ -56,16 +56,6 @@ Resources:
         Ref: Deploy
       Variables:
         lambdaAlias: Prod
-  Stage2:
-    Type: AWS::ApiGateway::Stage
-    Properties:
-      StageName: PETER
-      RestApiId:
-        Ref: MyRestApiCP
-      DeploymentId:
-        Ref: Deploy
-      Variables:
-        lambdaAlias: Prod
 
 
 
