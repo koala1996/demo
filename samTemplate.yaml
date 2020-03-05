@@ -62,7 +62,7 @@ Resources:
     Properties:
       RestApiId: !Ref MyRestApiCP
       Type: COGNITO_USER_POOLS
-      IdentitySource: Authorization
+      IdentitySource: method.request.header.Authorization
       Name: token
       ProviderARNs: arn:aws:cognito-idp:eu-central-1:362697521991:userpool/eu-central-1_YyICixqe2
 
