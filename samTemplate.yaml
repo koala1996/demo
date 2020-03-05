@@ -64,7 +64,7 @@ Resources:
       Type: COGNITO_USER_POOLS
       IdentitySource: method.request.header.Authorization
       Name: token
-      ProviderARNs: YyICixqe2
+      ProviderARNs: eu-central-1_YyICixqe2
 
 
 
