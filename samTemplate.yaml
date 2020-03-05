@@ -57,14 +57,6 @@ Resources:
       Variables:
         lambdaAlias: Prod
 
-  Authorizer:
-    Type: AWS::ApiGateway::Authorizer
-    Properties:
-      RestApiId: !Ref MyRestApiCP
-      Type: COGNITO_USER_POOLS
-      IdentitySource: method.request.header.Authorization
-      Name: token
-      ProviderARNs: eu-central-1_YyICixqe2
 
 
 
