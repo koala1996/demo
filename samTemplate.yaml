@@ -8,7 +8,7 @@ Resources:
     Type: AWS::ApiGateway::RestApi
     Properties:
       Description: A test API !
-      Name: MyRestAPIDemo2
+      Name: MyRestAPIDemo3
   Stack:
     Type: AWS::ApiGateway::Resource
     DependsOn: MyRestApiCP
