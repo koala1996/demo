@@ -23,7 +23,7 @@ Resources:
      FunctionVersion: $LATEST
      Name: Prod
 
- AliasForMyApp5:
+ AliasForMyApp4:
     Type: AWS::Lambda::Alias
     Properties:
       FunctionName:
