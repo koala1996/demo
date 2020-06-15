@@ -7,7 +7,7 @@ Resources:
  myFunctionLambda:
     Type: 'AWS::Serverless::Function'
     Properties:
-      FunctionName: DeployLambdaCP
+      FunctionName: DeployDemo
       Handler: lambda_function.lambda_handler
       Runtime: python3.6
       CodeUri: ./LambdaCode
@@ -23,10 +23,10 @@ Resources:
      FunctionVersion: $LATEST
      Name: Prod
 
- AliasForMyApp4:
+ AliasForMyApp2:
     Type: AWS::Lambda::Alias
     Properties:
       FunctionName:
         Ref: myFunctionLambda
       FunctionVersion: $LATEST
-      Name: add
+      Name: dev
